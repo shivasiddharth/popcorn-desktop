@@ -4,7 +4,7 @@
  * setup *
  ********/
 const nwVersion = '0.44.5',
-  availablePlatforms = ['linux32', 'linux64', 'win32', 'win64', 'osx64'],
+  availablePlatforms = ['linux32', 'linux64', 'win32', 'win64', 'osx64', 'arm64','arm32'],
   releasesDir = 'build',
   nwFlavor = 'sdk';
 
@@ -515,7 +515,7 @@ gulp.task('nsis', () => {
   return Promise.all(
     nw.options.platforms.map((platform) => {
       // nsis is for win only
-      if (platform.match(/osx|linux/) !== null) {
+      if (platform.match(/osx|linux|arm/) !== null) {
         console.log('No `nsis` task for', platform);
         return null;
       }
